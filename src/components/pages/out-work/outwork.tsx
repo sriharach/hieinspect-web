@@ -17,16 +17,18 @@ import useOurwork from '@/hooks/pages/useOurwork';
 
 // style
 import styles from './outwork.module.scss';
+import Loading from '@/components/components/loading/loading';
 
 const Ourwork = () => {
-  const { categoriesData, housesData, isLoading, isError, categoryID, onCategoryModelHouse } = useOurwork();
+  const { categoriesData, housesData, isLoading, isError, categoryID, onCategoryModelHouse, onSetToolsResearch } =
+    useOurwork();
 
   return (
     <section id="out-work" aria-label="Out Work Section">
       <BackgroundLanding text="ผลงานของเรา" />
       <Container>
         {isLoading ? (
-          <LoadingSkeleton counts={3} />
+          <Loading />
         ) : isError ? (
           <span className="text-red-600 uppercase font-normal">Unable to connect</span>
         ) : (
@@ -76,6 +78,12 @@ const Ourwork = () => {
                   classNames={{
                     inputWrapper: 'rounded-tr-none rounded-br-none',
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      onSetToolsResearch((prev) => prev);
+                    }
+                  }}
+                  onChange={(e) => onSetToolsResearch((prev) => ({ ...prev, search: e.target.value }))}
                 />
 
                 {/* content-search */}

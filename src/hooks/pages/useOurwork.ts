@@ -10,6 +10,11 @@ import { ReponseCategory } from '@/types/models/category';
 
 const useOurwork = () => {
   const [categoryID, setCategoryID] = useState('');
+  const [toolsResearch, setToolsResearch] = useState<{
+    search: string;
+    page: number;
+    limit: number;
+  }>({ search: '', page: 1, limit: 10 });
 
   // hook service
   const {
@@ -18,7 +23,11 @@ const useOurwork = () => {
     isFetching: categoriesFetching,
     isError: categoriesError,
   } = useQueryGetCategory();
-  const { data: housesDataQuery } = useQueryGetHouse();
+  const { data: housesDataQuery } = useQueryGetHouse({
+    ...toolsResearch,
+    category_id: categoryID,
+  });
+  console.log('housesDataQuery', housesDataQuery);
 
   const categoriesData = useMemo(() => {
     if (categoriesDataQuery) {
@@ -50,6 +59,7 @@ const useOurwork = () => {
     isLoading: categoriesLoading || categoriesFetching,
     categoryID,
     onCategoryModelHouse: handleCategoryModelHouse,
+    onSetToolsResearch: setToolsResearch,
   };
 };
 

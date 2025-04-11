@@ -3,16 +3,20 @@ import { PATH_CATEGORY, PATH_HOUSE } from './prefix';
 import { TResponse, TresponsePaginate } from '@/types/common/response..common';
 import { ReponseCategory } from '@/types/models/category';
 import { ResponseHouse } from '@/types/models/house';
+import { HouseListI } from './service.type';
 
 export const GET_CATEGORIES_LIST = async () => {
   const response = await axios.get<TResponse<ReponseCategory[]>>(PATH_CATEGORY);
   return response.data;
 };
 
-export const GET_HOUSE_LIST = async (category_id?: string) => {
+export const GET_HOUSE_LIST = async (props: HouseListI) => {
   const newQuery = new URL(PATH_HOUSE);
 
-  if (category_id) newQuery.searchParams.set('category_id', String(category_id));
+  if (props.category_id) newQuery.searchParams.set('category_id', String(props.category_id));
+  if (props.page) newQuery.searchParams.set('page', String(props.page));
+  if (props.limit) newQuery.searchParams.set('limit', String(props.limit));
+  if (props.search) newQuery.searchParams.set('search', String(props.search));
 
   const response = await axios.get<TResponse<TresponsePaginate<ResponseHouse[]>>>(newQuery.toString());
   return response.data;
