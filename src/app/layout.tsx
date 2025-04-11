@@ -1,8 +1,11 @@
-import type { Metadata } from 'next';
-import { Kanit } from 'next/font/google';
-import '../styles/globals.scss';
 import Layout from '@/components/layouts/Layout';
+import ReactQueryProvider from '@/contexts/reactQueryProvider';
+import type { Metadata } from 'next';
+import ToastProviders from '@/contexts/toastProvider';
+import '../styles/globals.scss';
 
+// font
+import { Kanit } from 'next/font/google';
 const kanitFont = Kanit({
   subsets: ['latin', 'thai'],
   weight: ['400', '500', '600', '700'],
@@ -22,7 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${kanitFont.className}`}>
-        <Layout>{children}</Layout>
+        <ToastProviders>
+          <ReactQueryProvider>
+            <Layout>{children}</Layout>
+          </ReactQueryProvider>
+        </ToastProviders>
       </body>
     </html>
   );

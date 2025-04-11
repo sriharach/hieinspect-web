@@ -1,0 +1,15 @@
+.landing {
+    @apply flex-1 -mt-14;
+
+    &-background {
+        @apply relative bg-[url(/images/roofs-small-blue-yellow-houses-with-copyspace-sky.webp)] bg-bottom bg-cover h-[340px] md:h-[480px] xl:h-[600px] w-full;
+    }
+
+    &-filter-color {
+        @apply absolute inset-0 bg-black/40;
+    }
+
+    &-content-container-text {
+        @apply absolute z-10 top-[58%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white;
+    }
+}

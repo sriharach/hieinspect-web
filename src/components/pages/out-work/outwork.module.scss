@@ -1,0 +1,21 @@
+@tailwind components;
+
+
+@layer components {
+    .outwork-layout-categories {
+        @apply border-none cursor-pointer transition-transform hover:!scale-100 hover:!opacity-100 shadow-lg rounded-lg shrink-0; 
+    }
+
+}
+
+.outwork {
+    @apply overflow-x-auto lg:flex-wrap gap-6 flex w-full lg:justify-center;
+    
+    &-desc {
+        @apply flex backdrop-blur-sm bg-black/30 justify-center border-white/20 border-1 overflow-hidden py-1.5 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10;
+    }
+
+    &-icon-search {
+        @apply w-[50px] border-t-2 border-r-2 border-b-2 rounded-tr-lg rounded-br-lg hover:border-main-color hover:bg-main-color cursor-pointer;
+    }
+}

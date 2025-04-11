@@ -1,0 +1,129 @@
+{
+  "uuid": "2aedf987-012c-4dcb-8d13-dd4169f13b29",
+  "lastMigration": 33,
+  "name": "Hieinspect service",
+  "endpointPrefix": "",
+  "latency": 1500,
+  "port": 8001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "0bdc4ed0-6650-4e5b-a036-a51bd625483b",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/category_house/all",
+      "responses": [
+        {
+          "uuid": "85072409-df1b-4018-a57d-8f9364e04268",
+          "body": "{\n  \"data\": [\n    {\n      \"id\": \"string1\",\n      \"name\": \"บ้านเดี่ยว\"\n    },\n    {\n      \"id\": \"string2\",\n      \"name\": \"ทาวน์โฮม\"\n    },\n    {\n      \"id\": \"string3\",\n      \"name\": \"บ้านแฝด\"\n    },\n    {\n      \"id\": \"string4\",\n      \"name\": \"อาคารพาณิชย์\"\n    }\n  ],\n  \"status_code\": 200\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a549a4db-783a-4078-ae71-28ac6523e889",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/model_house",
+      "responses": [
+        {
+          "uuid": "238de011-937e-48b3-9981-820d813f6bce",
+          "body": "{\n  \"data\": {\n    \"data\": [\n      {\n        \"id\": \"123\",\n        \"name\": \"บ้าน\"\n      },\n      {\n        \"id\": \"1233\",\n        \"name\": \"บ้า1น\"\n      },\n      {\n        \"id\": \"1234\",\n        \"name\": \"บ้า2น\"\n      },\n      {\n        \"id\": \"1235\",\n        \"name\": \"บ้า3น\"\n      },\n      {\n        \"id\": \"1236\",\n        \"name\": \"บ้า4น\"\n      }\n    ]\n  },\n  \"status_code\": 200\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "0bdc4ed0-6650-4e5b-a036-a51bd625483b"
+    },
+    {
+      "type": "route",
+      "uuid": "a549a4db-783a-4078-ae71-28ac6523e889"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

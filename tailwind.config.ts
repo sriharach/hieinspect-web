@@ -7,6 +7,14 @@ export default {
     extend: {
       colors: {
         'main-color': 'var(--mainColor)',
+        'color-disable': 'var(--colorDisable)',
+      },
+      container: {
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1280px',
+        },
       },
     },
   },
