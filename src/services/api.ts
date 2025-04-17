@@ -1,12 +1,18 @@
 import axios from 'axios';
-import { PATH_CATEGORY, PATH_HOUSE } from './prefix';
+import { PATH_CATEGORY, PATH_HOUSE, PATH_REALTYS } from './prefix';
 import { TResponse, TresponsePaginate } from '@/types/common/response..common';
 import { ReponseCategory } from '@/types/models/category';
 import { ResponseHouse } from '@/types/models/house';
 import { HouseListI } from './service.type';
+import { ResponseRealtys } from '@/types/models/realtys';
 
 export const GET_CATEGORIES_LIST = async () => {
   const response = await axios.get<TResponse<ReponseCategory[]>>(PATH_CATEGORY);
+  return response.data;
+};
+
+export const GET_REALTYS_LIST = async () => {
+  const response = await axios.get<TResponse<ResponseRealtys[]>>(PATH_REALTYS);
   return response.data;
 };
 

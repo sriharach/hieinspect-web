@@ -1,4 +1,5 @@
 export default  {
     PATH_GET_CATEGORY: 'PATH_GET_CATEGORY',
     PATH_GET_HOUSE: 'PATH_GET_HOUSE',
+    PATH_GET_REALTYS: 'PATH_GET_REALTYS',
 } as const

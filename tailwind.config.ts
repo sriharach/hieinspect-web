@@ -19,7 +19,17 @@ export default {
     },
   },
   darkMode: 'class',
-  plugins: [heroui()],
+  plugins: [heroui({
+    themes: {
+      light: {
+        colors: {
+          primary: {
+            DEFAULT: "#0085FF",
+          },
+        },
+      },
+    },
+  })],
   // corePlugins: {
   //   preflight: false,
   // },

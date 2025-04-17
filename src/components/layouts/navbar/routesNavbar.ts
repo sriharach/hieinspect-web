@@ -10,8 +10,8 @@ export const routesNavbar = [
     herf: '',
   },
   {
-    id: 'our-work',
+    id: 'our-achievements',
     name: 'ผลงานของเรา',
-    herf: '/our-work',
+    herf: '/our-achievements',
   },
 ];
