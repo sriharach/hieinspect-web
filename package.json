@@ -18,7 +18,9 @@
     "next": "15.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-hook-form": "^7.54.2"
+    "react-image-lightbox": "^5.1.4",
+    "vconsole": "^3.15.1",
+    "yet-another-react-lightbox": "^3.22.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

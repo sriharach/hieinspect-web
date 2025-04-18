@@ -1,6 +1,5 @@
 // libs
 import { useMemo, useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 // hook
 import { useQueryGetCategory } from '@/hooks/useQuery/useQueryGetCategory';
@@ -13,7 +12,6 @@ import { TresponsePaginate } from '@/types/common/response..common';
 import { ResponseHouse } from '@/types/models/house';
 
 const useOurAchievements = () => {
-  const router = useRouter();
   // hook state
   const [categoryID, setCategoryID] = useState('');
   const [search, setSearch] = useState('');
@@ -85,14 +83,14 @@ const useOurAchievements = () => {
   const handleClickHouseAchievements = (house_id: string) => {
     const url = new URLSearchParams();
     url.set('hiehouse-id', house_id);
-    router.push(window.document.location.pathname + '/house?' + url.toString());
+    return window.document.location.pathname + '/house?' + url.toString();
   };
 
   return {
     categoriesData,
     realtysData,
     housesData: housesDataQuery ? housesDataQuery.data : ([] as unknown as TresponsePaginate<ResponseHouse[]>),
-    isError: categoriesError || realtysError,
+    isError: categoriesError,
     isLoading: categoriesLoading || categoriesFetching || realtysLoading || realtysFetching,
     isLoadingContent: housesLoading || housesLoading,
     categoryID,

@@ -7,7 +7,7 @@ export interface ResponseHouse {
   created_date: string;
   created_by: string;
   code_house: string;
-  house_images: [];
+  house_images: ReponseHouseImage[];
   category_house: {
     id: string;
     name: string;
@@ -17,4 +17,11 @@ export interface ResponseHouse {
     name: string;
   };
   created_name: null;
+}
+
+export interface ReponseHouseImage {
+  id: string;
+  file_name: string;
+  path_name: string;
+  image: string;
 }

@@ -16,6 +16,7 @@ export const GET_REALTYS_LIST = async () => {
   return response.data;
 };
 
+// house
 export const GET_HOUSE_LIST = async (props: HouseListI) => {
   const newQuery = new URL(PATH_HOUSE);
 
@@ -27,3 +28,8 @@ export const GET_HOUSE_LIST = async (props: HouseListI) => {
   const response = await axios.get<TResponse<TresponsePaginate<ResponseHouse[]>>>(newQuery.toString());
   return response.data;
 };
+
+export const GET_HOUSE_FETCH_ONCE = async (house_id: string) => {
+  const response = await axios.get<TResponse<ResponseHouse>>(`${PATH_HOUSE}/${house_id}`);
+  return response.data;
+}

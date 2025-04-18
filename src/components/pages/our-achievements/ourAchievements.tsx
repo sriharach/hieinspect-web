@@ -4,20 +4,24 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Card, Select, SelectItem, Divider, Button } from '@heroui/react';
+import Link from 'next/link';
 
 // components
-import BackgroundLanding from '@/components/components/landing/backgroundLanding';
-import Container from '@/components/components/container/container';
-import InputHeroUi from '@/components/components/inputHeroUi';
-import LoadingSkeleton from '@/components/components/loadingSkeleton/loadingSkeleton';
-import SearchIcon from '@/components/components/icons/SearchIcon';
+import BackgroundLanding from '@/components/modules//landing/backgroundLanding';
+import Container from '@/components/modules//container/container';
+import InputHeroUi from '@/components/modules//inputHeroUi';
+import SearchIcon from '@/components/modules//icons/SearchIcon';
+import ErrorMessageComponent from '@/components/modules//errorMessageComponent';
+import ContainerContent from '@/components/modules//container/containerContent';
+import Badge from '@/components/modules//badge/badge';
 
 // hook
 import useOurAchievements from '@/hooks/pages/useOurAchievements';
 
 // style
 import styles from './ourAchievements.module.scss';
-import Loading from '@/components/components/loading/loading';
+import Loading from '@/components/modules//loading/loading';
+import Img from '@/components/modules//img/img';
 
 const OurAchievements = () => {
   const {
@@ -37,13 +41,11 @@ const OurAchievements = () => {
   return (
     <section id="our-achievements" aria-label="Our Achievements Section">
       <BackgroundLanding text="ผลงานของเรา" />
-      <Container>
-        {isLoading ? (
-          <Loading />
-        ) : isError ? (
-          <span className="text-red-600 uppercase font-normal">Unable to connect</span>
+      <Container loading={isLoading}>
+        {isError ? (
+          <ErrorMessageComponent />
         ) : (
-          <div className="flex flex-col space-y-8 shrink-0">
+          <ContainerContent>
             {/* categories-section */}
             <div
               id="categories-section"
@@ -57,7 +59,7 @@ const OurAchievements = () => {
                     onClick={() => onCategoryModelHouse(category)}
                     className={clsx(
                       styles['our-achievements-layout-categories'],
-                      'group-hover:scale-95 group-hover:opacity-60',
+                      'lg:group-hover:scale-95 lg:group-hover:opacity-60',
                       {
                         'lg:opacity-100 lg:group-hover:!opacity-100 lg:group-hover:!scale-100':
                           categoryID && category.id === categoryID,
@@ -68,8 +70,8 @@ const OurAchievements = () => {
                     )}
                   >
                     <Card radius="lg">
-                      <img
-                        draggable={false}
+                      <Img
+                        onContextMenu
                         alt={`image-preview-${index + 1}`}
                         className={styles['our-achievements-card-img-categories']}
                         src={category.img_preview}
@@ -133,26 +135,23 @@ const OurAchievements = () => {
                   >
                     {housesData.data.map((house) => {
                       return (
-                        <div
+                        <Link
                           key={house.id}
                           className="rounded-bl-none rounded-br-none flex flex-col shadow-md cursor-pointer"
-                          onClick={() => onClickHouseAchievements(house.id)}
+                          href={onClickHouseAchievements(house.id)}
                         >
                           <Card radius="lg" className="rounded-bl-none rounded-br-none">
-                            <img
-                              draggable={false}
+                            <Img
                               alt={`image-preview`}
                               className={styles['our-achievements-card-img-houses']}
                               src={'/images/twinhome_preview.webp'}
                             />
                             <div className="p-4 min-h-min flex flex-col">
-                              <div className="border rounded-md p-1 max-w-max bg-main-color">
-                                <span className="text-sm text-white">{house.realty.name}</span>
-                              </div>
+                              <Badge text={house.category_house.name} />
                               <span>{house.name}</span>
                             </div>
                           </Card>
-                        </div>
+                        </Link>
                       );
                     })}
                   </div>
@@ -175,7 +174,7 @@ const OurAchievements = () => {
                 </>
               )}
             </div>
-          </div>
+          </ContainerContent>
         )}
       </Container>
     </section>
