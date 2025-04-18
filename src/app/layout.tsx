@@ -1,7 +1,12 @@
+// libs
+import { Suspense } from 'react';
+
+// components
 import Layout from '@/components/layouts/Layout';
 import ReactQueryProvider from '@/contexts/reactQueryProvider';
-import type { Metadata } from 'next';
 import ToastProviders from '@/contexts/toastProvider';
+
+import type { Metadata } from 'next';
 import '../styles/globals.scss';
 
 // font
@@ -29,7 +34,9 @@ export default function RootLayout({
         <VconsoleProvider>
           <ToastProviders>
             <ReactQueryProvider>
-              <Layout>{children}</Layout>
+              <Suspense>
+                <Layout>{children}</Layout>
+              </Suspense>
             </ReactQueryProvider>
           </ToastProviders>
         </VconsoleProvider>

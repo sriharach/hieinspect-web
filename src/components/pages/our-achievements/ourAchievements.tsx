@@ -133,27 +133,31 @@ const OurAchievements = () => {
                     aria-label="section-content-house"
                     className="grid grid-cols-2 lg:grid-cols-3 gap-4"
                   >
-                    {housesData.data.map((house) => {
-                      return (
-                        <Link
-                          key={house.id}
-                          className="rounded-bl-none rounded-br-none flex flex-col shadow-md cursor-pointer"
-                          href={onClickHouseAchievements(house.id)}
-                        >
-                          <Card radius="lg" className="rounded-bl-none rounded-br-none">
-                            <Img
-                              alt={`image-preview`}
-                              className={styles['our-achievements-card-img-houses']}
-                              src={'/images/twinhome_preview.webp'}
-                            />
-                            <div className="p-4 min-h-min flex flex-col">
-                              <Badge text={house.category_house.name} />
-                              <span>{house.name}</span>
-                            </div>
-                          </Card>
-                        </Link>
-                      );
-                    })}
+                    {housesData.data.length === 0 ? (
+                      <span>ไม่มีรายการตรวจสอบของโครงการ</span>
+                    ) : (
+                      housesData.data.map((house) => {
+                        return (
+                          <Link
+                            key={house.id}
+                            className="rounded-bl-none rounded-br-none flex flex-col shadow-md cursor-pointer"
+                            href={onClickHouseAchievements(house.id)}
+                          >
+                            <Card radius="lg" className="rounded-bl-none rounded-br-none">
+                              <Img
+                                alt={`image-preview`}
+                                className={styles['our-achievements-card-img-houses']}
+                                src={'/images/twinhome_preview.webp'}
+                              />
+                              <div className="p-4 min-h-min flex flex-col">
+                                <Badge text={house.category_house.name} />
+                                <span>{house.name}</span>
+                              </div>
+                            </Card>
+                          </Link>
+                        );
+                      })
+                    )}
                   </div>
 
                   {housesData.meta.totalPages > 1 && (

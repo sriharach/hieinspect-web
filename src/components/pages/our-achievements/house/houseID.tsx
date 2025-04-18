@@ -39,28 +39,34 @@ const HouseID = () => {
             </div>
             <Divider />
             <div aria-label="house-image" className="flex-1 space-y-4">
-              <p className="text-lg">รูปผลประกอบการ</p>
-              <div className="grid grid-cols-4 gap-3">
-                {(houseDataOnce?.house_images || []).map((house_image, index) => {
-                  return (
-                    <div
-                      key={house_image.id}
-                      onClick={() => {
-                        setShowGallery(index);
-                        setOpenShowGallery((prev) => !prev);
-                      }}
-                      className="relative cursor-pointer overflow-hidden"
-                    >
-                      <Card radius="sm" shadow="sm" className="h-[260px]">
-                        <Img onContextMenu src={house_image.image} className="w-full h-full object-cover" />
-                      </Card>
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 rounded-md bg-black/40 transition-opacity">
-                        <span className="text-white text-xl">ดูรูปภาพ</span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              {(houseDataOnce?.house_images || []).length === 0 ? (
+                <span>ไม่มีรูปประกอบการ</span>
+              ) : (
+                <>
+                  <p className="text-lg">รูปผลประกอบการ</p>
+                  <div className="grid grid-cols-4 gap-3">
+                    {(houseDataOnce?.house_images || []).map((house_image, index) => {
+                      return (
+                        <div
+                          key={house_image.id}
+                          onClick={() => {
+                            setShowGallery(index);
+                            setOpenShowGallery((prev) => !prev);
+                          }}
+                          className="relative cursor-pointer overflow-hidden"
+                        >
+                          <Card radius="sm" shadow="sm" className="h-[260px]">
+                            <Img onContextMenu src={house_image.image} className="w-full h-full object-cover" />
+                          </Card>
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 rounded-md bg-black/40 transition-opacity">
+                            <span className="text-white text-xl">ดูรูปภาพ</span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
             </div>
           </ContainerContent>
         )}
