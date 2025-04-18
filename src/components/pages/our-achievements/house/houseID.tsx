@@ -11,7 +11,7 @@ import ContainerContent from '@/components/modules//container/containerContent';
 import Badge from '@/components/modules//badge/badge';
 import ErrorMessageComponent from '@/components/modules//errorMessageComponent';
 import Img from '@/components/modules/img/img';
-import Gallery from '@/components/modules/gallery/gallerys';
+import Gallery from '@/components/modules/gallery/gallery';
 
 // hooks
 import useHouseAchievements from '@/hooks/pages/useHouseAchievements';
@@ -49,11 +49,14 @@ const HouseID = () => {
                         setShowGallery(index);
                         setOpenShowGallery((prev) => !prev);
                       }}
-                      className="relative cursor-pointer"
+                      className="relative cursor-pointer overflow-hidden"
                     >
                       <Card radius="sm" shadow="sm" className="h-[260px]">
                         <Img onContextMenu src={house_image.image} className="w-full h-full object-cover" />
                       </Card>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 rounded-md bg-black/40 transition-opacity">
+                        <span className="text-white text-xl">ดูรูปภาพ</span>
+                      </div>
                     </div>
                   );
                 })}
@@ -63,6 +66,7 @@ const HouseID = () => {
         )}
       </Container>
 
+      {/* aria-label:: the gallery image */}
       {openShowGallery && (
         <Gallery
           index={showGallery}
