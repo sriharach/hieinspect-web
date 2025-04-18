@@ -1,5 +1,5 @@
 .nav {
-    @apply fixed w-full flex flex-row justify-center z-50 top-0 translate-y-4 md:translate-y-6 xl:translate-y-10 transition-transform duration-400;
+    @apply fixed w-full flex flex-row justify-center z-20 top-0 translate-y-4 md:translate-y-6 xl:translate-y-10 transition-transform duration-400;
 
     &-ul-content {
         @apply flex rounded-full bg-white px-3 text-sm font-medium text-zinc-800 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10;

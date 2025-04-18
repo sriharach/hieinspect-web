@@ -1,6 +1,6 @@
 'use client';
 
-import BackgroundLanding from '@/components/components/landing/backgroundLanding';
+import BackgroundLanding from '@/components/modules/landing/backgroundLanding';
 import { Button } from '@heroui/react';
 import React from 'react';
 
