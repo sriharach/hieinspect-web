@@ -34,8 +34,8 @@ const HouseID = () => {
               </Card>
             </div>
             <div aria-label="badge-categories" className="flex flex-col space-y-2 items-start">
-              <Badge text={houseDataOnce?.category_house.name} classNameText="text-xl" />
-              <strong className="text-2xl font-medium">ชื่อโครงการ: {houseDataOnce?.name}</strong>
+              <Badge text={houseDataOnce?.category_house.name} classNameText="text-md md:text-xl" />
+              <strong className="text-lg md:text-2xl font-medium">ชื่อโครงการ: {houseDataOnce?.name}</strong>
             </div>
             <Divider />
             <div aria-label="house-image" className="flex-1 space-y-4">
@@ -44,7 +44,7 @@ const HouseID = () => {
               ) : (
                 <>
                   <p className="text-lg">รูปผลประกอบการ</p>
-                  <div className="grid grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                     {(houseDataOnce?.house_images || []).map((house_image, index) => {
                       return (
                         <div
@@ -55,7 +55,7 @@ const HouseID = () => {
                           }}
                           className="relative cursor-pointer overflow-hidden"
                         >
-                          <Card radius="sm" shadow="sm" className="h-[260px]">
+                          <Card radius="sm" shadow="sm" className="h-[140px] md:h-[260px]">
                             <Img onContextMenu src={house_image.image} className="w-full h-full object-cover" />
                           </Card>
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 rounded-md bg-black/40 transition-opacity">
