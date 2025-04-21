@@ -51,12 +51,14 @@ const useOurAchievements = () => {
           category.name === 'บ้านเดี่ยว'
             ? '/images/detached_house_preview.webp'
             : category.name === 'ทาวน์โฮม'
-            ? '/images/townhome_preview.webp'
-            : category.name === 'บ้านแฝด'
-            ? '/images/twinhome_preview.webp'
-            : category.name === 'อาคารพาณิชย์'
-            ? '/images/commercial_building_preview.webp'
-            : '',
+              ? '/images/townhome_preview.webp'
+              : category.name === 'บ้านแฝด'
+                ? '/images/twinhome_preview.webp'
+                : category.name === 'อาคารพาณิชย์'
+                  ? '/images/commercial_building_preview.webp'
+                  : category.name === 'คอนโด'
+                    ? '/images/condo_preview.webp'
+                    : undefined,
       }));
     }
     return [];

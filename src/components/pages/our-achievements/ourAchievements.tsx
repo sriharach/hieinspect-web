@@ -131,7 +131,7 @@ const OurAchievements = () => {
                   <div
                     id="section-content-house"
                     aria-label="section-content-house"
-                    className="grid grid-cols-2 lg:grid-cols-3 gap-4"
+                    className="grid grid-cols-2 lg:grid-cols-3 gap-3"
                   >
                     {housesData.data.length === 0 ? (
                       <span>ไม่มีรายการตรวจสอบของโครงการ</span>
@@ -147,10 +147,10 @@ const OurAchievements = () => {
                               <Img
                                 alt={`image-preview`}
                                 className={styles['our-achievements-card-img-houses']}
-                                src={'/images/twinhome_preview.webp'}
+                                src={house.cover_image_house}
                               />
-                              <div className="p-4 min-h-min flex flex-col">
-                                <Badge text={house.category_house.name} />
+                              <div className="p-4 min-h-max flex flex-col">
+                                {house.category_house && <Badge text={house.category_house.name} />}
                                 <span>{house.name}</span>
                               </div>
                             </Card>

@@ -29,12 +29,12 @@ const HouseID = () => {
         ) : (
           <ContainerContent>
             <div aria-label="cover-image-content" className="flex-1 flex justify-center">
-              <Card radius="none" shadow="sm" className="lg:h-[640px]">
-                <Img onContextMenu src="/images/twinhome_preview.webp" className="w-auto h-full object-cover" />
+              <Card radius="none" shadow="sm" className="lg:h-[620px] w-full">
+                <Img onContextMenu src={houseDataOnce?.cover_image_house} className="w-auto h-full object-cover" />
               </Card>
             </div>
             <div aria-label="badge-categories" className="flex flex-col space-y-2 items-start">
-              <Badge text={houseDataOnce?.category_house.name} classNameText="text-md md:text-xl" />
+              {houseDataOnce?.category_house && <Badge text={houseDataOnce?.category_house.name} classNameText="text-md md:text-xl" />} 
               <strong className="text-lg md:text-2xl font-medium">ชื่อโครงการ: {houseDataOnce?.name}</strong>
             </div>
             <Divider />
