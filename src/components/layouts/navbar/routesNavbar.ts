@@ -4,11 +4,11 @@ export const routesNavbar = [
     name: 'หน้าแรก',
     herf: '/',
   },
-  {
-    id: 'about',
-    name: 'เกี่ยวกับเรา',
-    herf: '',
-  },
+  // {
+  //   id: 'about',
+  //   name: 'เกี่ยวกับเรา',
+  //   herf: '',
+  // },
   {
     id: 'our-achievements',
     name: 'ผลงานของเรา',
