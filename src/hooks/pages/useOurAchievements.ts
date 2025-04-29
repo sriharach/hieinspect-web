@@ -8,7 +8,7 @@ import { useQueryGetRealtys } from '../useQuery/useQueryGetRealtys';
 
 // type
 import { ReponseCategory } from '@/types/models/category';
-import { TresponsePaginate } from '@/types/common/response..common';
+import { TresponsePaginate } from '@/types/common/response.common';
 import { ResponseHouse } from '@/types/models/house';
 
 const useOurAchievements = () => {

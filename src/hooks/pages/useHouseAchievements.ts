@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { useQueryGetHouseFetchOnce } from '../useQuery/useQueryGetHouse';
 
 // type
-import { TResponse } from '@/types/common/response..common';
+import { TResponse } from '@/types/common/response.common';
 import { ResponseHouse } from '@/types/models/house';
 
 const useHouseAchievements = () => {

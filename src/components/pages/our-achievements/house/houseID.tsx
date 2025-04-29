@@ -12,13 +12,20 @@ import Badge from '@/components/modules//badge/badge';
 import ErrorMessageComponent from '@/components/modules//errorMessageComponent';
 import Img from '@/components/modules/img/img';
 import Gallery from '@/components/modules/gallery/gallery';
+import { useQueryClient } from '@tanstack/react-query'
 
 // hooks
 import useHouseAchievements from '@/hooks/pages/useHouseAchievements';
+import querykeys from '@/hooks/querykeys';
 
 const HouseID = () => {
   const { houseDataOnce, isLoading, isError, showGallery, openShowGallery, setShowGallery, setOpenShowGallery } =
     useHouseAchievements();
+
+    const queryClient = useQueryClient()
+
+    const neDate = queryClient.getQueryData([querykeys.PATH_GET_HOUSE])
+    console.log('neDate', neDate)
 
   return (
     <section id="our-achievements-house" aria-label="Our Achievements Section">
