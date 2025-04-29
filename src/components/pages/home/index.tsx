@@ -2,9 +2,13 @@
 
 import BackgroundLanding from '@/components/modules/landing/backgroundLanding';
 import { Button } from '@heroui/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Home = () => {
+
+  useEffect(() => {
+    window.location.href = '/our-achievements'
+  },[])
   return (
     <>
       <BackgroundLanding text='Hieinspect' />

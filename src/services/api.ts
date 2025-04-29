@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { PATH_CATEGORY, PATH_HOUSE, PATH_REALTYS } from './prefix';
-import { TResponse, TresponsePaginate } from '@/types/common/response..common';
+import { TResponse, TresponsePaginate } from '@/types/common/response.common';
 import { ReponseCategory } from '@/types/models/category';
 import { ResponseHouse } from '@/types/models/house';
 import { HouseListI } from './service.type';

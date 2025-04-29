@@ -91,6 +91,7 @@ const OurAchievements = () => {
                 <div id="content-search" className="flex w-full md:w-[360px]">
                   {/* content-search */}
                   <InputHeroUi
+                    maxLength={40}
                     size="sm"
                     startContent={<SearchIcon className="text-black/70 shrink-0 mb-1 h-3 w-3" />}
                     label="ค้นหาชื่อบ้าน"
@@ -149,7 +150,7 @@ const OurAchievements = () => {
                                 className={styles['our-achievements-card-img-houses']}
                                 src={house.cover_image_house}
                               />
-                              <div className="p-4 min-h-max flex flex-col">
+                              <div className="p-4 min-h-8 h-full flex flex-col">
                                 {house.category_house && <Badge text={house.category_house.name} />}
                                 <span>{house.name}</span>
                               </div>
