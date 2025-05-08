@@ -18,7 +18,7 @@ const kanitFont = Kanit({
 
 export const metadata: Metadata = {
   title: 'HIEinspect',
-  description: 'ออนไซต์ รับตรวจบ้าน HIEinspect',
+  description: 'ออนไซต์ รับตรวจบ้าน HIEinspect - Website Inspection Report',
   applicationName: 'HIEinspect',
 };
 

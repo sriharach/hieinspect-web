@@ -1,5 +1,5 @@
 // libs
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 // hook
 import { useQueryGetCategory } from '@/hooks/useQuery/useQueryGetCategory';
@@ -20,6 +20,16 @@ const useOurAchievements = () => {
     page: number;
     limit: number;
   }>({ search: '', page: 1, limit: 9 });
+  const [houseData, setHouseData] = useState<TresponsePaginate<ResponseHouse[]>>({
+    data: [],
+    meta: {
+      itemsPerPage: 1,
+      totalItems: 5,
+      currentPage: 1,
+      totalPages: 1,
+      sortBy: [[]],
+    },
+  });
 
   // hook service
   const {
@@ -42,6 +52,22 @@ const useOurAchievements = () => {
     isFetching: realtysFetching,
     isError: realtysError,
   } = useQueryGetRealtys();
+
+  useEffect(() => {
+    if (housesDataQuery && housesDataQuery.data) {
+      setHouseData((prevHouse) => ({
+        ...prevHouse,
+        data: [...prevHouse.data, ...housesDataQuery.data.data],
+      }));
+    }
+
+    return () => {
+      setHouseData((prevHouse) => ({
+        ...prevHouse,
+        data: [],
+      }));
+    };
+  }, [housesDataQuery]);
 
   const categoriesData = useMemo(() => {
     if (categoriesDataQuery) {
@@ -91,7 +117,7 @@ const useOurAchievements = () => {
   return {
     categoriesData,
     realtysData,
-    housesData: housesDataQuery ? housesDataQuery.data : ([] as unknown as TresponsePaginate<ResponseHouse[]>),
+    housesData: houseData,
     isError: categoriesError,
     isLoading: categoriesLoading || categoriesFetching || realtysLoading || realtysFetching,
     isLoadingContent: housesLoading || housesLoading,

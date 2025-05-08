@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center text-sm md:text-base shrink-0">
-          <p>&copy; {new Date().getFullYear()} HIEinspect All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} HIEinspect - Web Wisdom construction assistant All rights reserved.</p>
         </div>
       </div>
     </footer>
