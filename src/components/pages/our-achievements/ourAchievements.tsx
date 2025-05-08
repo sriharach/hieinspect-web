@@ -32,15 +32,17 @@ const OurAchievements = () => {
     isLoadingContent,
     isError,
     categoryID,
+    toolsResearch,
     onSetSearch,
     onCategoryModelHouse,
     onHandleSubmitSearch,
     onClickHouseAchievements,
+    onMorePage,
   } = useOurAchievements();
 
   return (
     <section id="our-achievements" aria-label="Our Achievements Section">
-      <BackgroundLanding text="Hieinspect" secondText='ผลงานของเรา' />
+      <BackgroundLanding text="Hieinspect (Wisdom)" secondText="ผลงานของเรา" />
       <Container loading={isLoading}>
         {isError ? (
           <ErrorMessageComponent />
@@ -143,6 +145,7 @@ const OurAchievements = () => {
                             key={house.id}
                             className="rounded-bl-none rounded-br-none flex flex-col shadow-md cursor-pointer"
                             href={onClickHouseAchievements(house.id)}
+                            passHref
                           >
                             <Card radius="lg" className="rounded-bl-none rounded-br-none">
                               <Img
@@ -161,13 +164,14 @@ const OurAchievements = () => {
                     )}
                   </div>
 
-                  {housesData.meta.totalPages > 1 && (
+                  {housesData.meta.totalPages > toolsResearch.page && (
                     <div
                       id="section-onload-more-data"
                       aria-label="section-onload-more-data"
                       className="flex justify-center flex-1"
                     >
                       <Button
+                        onPress={onMorePage}
                         variant="bordered"
                         className="w-full md:w-72 h-12 md:h-[70px] md:text-base"
                         color="primary"

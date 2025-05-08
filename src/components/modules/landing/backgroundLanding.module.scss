@@ -10,6 +10,6 @@
     }
 
     &-content-container-text {
-        @apply absolute z-10 top-[58%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white inline-flex flex-col items-center text-center space-y-6;
+        @apply absolute z-10 top-[58%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-white inline-flex flex-col items-center text-center space-y-2 md:space-y-6;
     }
 }

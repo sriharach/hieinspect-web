@@ -56,18 +56,20 @@ const useOurAchievements = () => {
   useEffect(() => {
     if (housesDataQuery && housesDataQuery.data) {
       setHouseData((prevHouse) => ({
-        ...prevHouse,
         data: [...prevHouse.data, ...housesDataQuery.data.data],
+        meta: { ...prevHouse.meta, ...housesDataQuery.data.meta },
       }));
     }
+  }, [housesDataQuery]);
 
+  useEffect(() => {
     return () => {
       setHouseData((prevHouse) => ({
         ...prevHouse,
         data: [],
       }));
     };
-  }, [housesDataQuery]);
+  }, []);
 
   const categoriesData = useMemo(() => {
     if (categoriesDataQuery) {
@@ -114,6 +116,13 @@ const useOurAchievements = () => {
     return window.document.location.pathname + '/house?' + url.toString();
   };
 
+  const handleMorePage = () => {
+    setToolsResearch((prev) => ({
+      ...prev,
+      page: prev.page + 1,
+    }));
+  };
+
   return {
     categoriesData,
     realtysData,
@@ -122,10 +131,12 @@ const useOurAchievements = () => {
     isLoading: categoriesLoading || categoriesFetching || realtysLoading || realtysFetching,
     isLoadingContent: housesLoading || housesLoading,
     categoryID,
+    toolsResearch,
     onSetSearch: setSearch,
     onHandleSubmitSearch: handleSubmitSearch,
     onCategoryModelHouse: handleCategoryModelHouse,
     onClickHouseAchievements: handleClickHouseAchievements,
+    onMorePage: handleMorePage,
   };
 };
 

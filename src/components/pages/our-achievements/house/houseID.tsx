@@ -12,20 +12,13 @@ import Badge from '@/components/modules//badge/badge';
 import ErrorMessageComponent from '@/components/modules//errorMessageComponent';
 import Img from '@/components/modules/img/img';
 import Gallery from '@/components/modules/gallery/gallery';
-import { useQueryClient } from '@tanstack/react-query'
 
 // hooks
 import useHouseAchievements from '@/hooks/pages/useHouseAchievements';
-import querykeys from '@/hooks/querykeys';
 
 const HouseID = () => {
   const { houseDataOnce, isLoading, isError, showGallery, openShowGallery, setShowGallery, setOpenShowGallery } =
     useHouseAchievements();
-
-    const queryClient = useQueryClient()
-
-    const neDate = queryClient.getQueryData([querykeys.PATH_GET_HOUSE])
-    console.log('neDate', neDate)
 
   return (
     <section id="our-achievements-house" aria-label="Our Achievements Section">
@@ -36,9 +29,10 @@ const HouseID = () => {
         ) : (
           <ContainerContent>
             <div aria-label="cover-image-content" className="flex-1 flex justify-center">
-              <Card radius="none" shadow="sm" className="lg:h-[620px] w-full">
-                <Img onContextMenu src={houseDataOnce?.cover_image_house} className="w-auto h-full object-cover" />
-              </Card>
+              <div className='max-w-[684px]'>
+
+            <Img onContextMenu src={houseDataOnce?.cover_image_house} className="w-auto h-full object-contain" />
+              </div>
             </div>
             <div aria-label="badge-categories" className="flex flex-col space-y-2 items-start">
               {houseDataOnce?.category_house && <Badge text={houseDataOnce?.category_house.name} classNameText="text-md md:text-xl" />} 
