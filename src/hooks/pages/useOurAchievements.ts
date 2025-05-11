@@ -20,17 +20,6 @@ const useOurAchievements = () => {
     page: number;
     limit: number;
   }>({ search: '', page: 1, limit: 9 });
-  const [houseData, setHouseData] = useState<TresponsePaginate<ResponseHouse[]>>({
-    data: [],
-    meta: {
-      itemsPerPage: 1,
-      totalItems: 5,
-      currentPage: 1,
-      totalPages: 1,
-      sortBy: [[]],
-    },
-  });
-
   // hook service
   const {
     data: categoriesDataQuery,
@@ -53,23 +42,6 @@ const useOurAchievements = () => {
     isError: realtysError,
   } = useQueryGetRealtys();
 
-  useEffect(() => {
-    if (housesDataQuery && housesDataQuery.data) {
-      setHouseData((prevHouse) => ({
-        data: [...prevHouse.data, ...housesDataQuery.data.data],
-        meta: { ...prevHouse.meta, ...housesDataQuery.data.meta },
-      }));
-    }
-  }, [housesDataQuery]);
-
-  useEffect(() => {
-    return () => {
-      setHouseData((prevHouse) => ({
-        ...prevHouse,
-        data: [],
-      }));
-    };
-  }, []);
 
   const categoriesData = useMemo(() => {
     if (categoriesDataQuery) {
@@ -116,17 +88,36 @@ const useOurAchievements = () => {
     return window.document.location.pathname + '/house?' + url.toString();
   };
 
-  const handleMorePage = () => {
+  const handleChangePage = (page: number) => {
     setToolsResearch((prev) => ({
       ...prev,
-      page: prev.page + 1,
+      page,
     }));
   };
+  const housesData = useMemo<TresponsePaginate<ResponseHouse[]>>(() => {
+    if (housesDataQuery) {
+      return {
+        data: housesDataQuery.data.data,
+        meta: housesDataQuery.data.meta,
+      };
+    }
+    return {
+      data: [],
+      meta: {
+        itemsPerPage: 1,
+        totalItems: 5,
+        currentPage: 1,
+        totalPages: 1,
+        sortBy: [[]],
+      }
+    }
+  }, [housesDataQuery])
+  
 
   return {
     categoriesData,
     realtysData,
-    housesData: houseData,
+    housesData: housesData,
     isError: categoriesError,
     isLoading: categoriesLoading || categoriesFetching || realtysLoading || realtysFetching,
     isLoadingContent: housesLoading || housesLoading,
@@ -136,7 +127,7 @@ const useOurAchievements = () => {
     onHandleSubmitSearch: handleSubmitSearch,
     onCategoryModelHouse: handleCategoryModelHouse,
     onClickHouseAchievements: handleClickHouseAchievements,
-    onMorePage: handleMorePage,
+    onChangePage: handleChangePage,
   };
 };
 

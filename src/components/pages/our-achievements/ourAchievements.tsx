@@ -3,7 +3,7 @@
 // libs
 import React from 'react';
 import clsx from 'clsx';
-import { Card, Select, SelectItem, Divider, Button } from '@heroui/react';
+import { Card, Select, SelectItem, Divider, Button, Pagination } from '@heroui/react';
 import Link from 'next/link';
 
 // components
@@ -37,7 +37,7 @@ const OurAchievements = () => {
     onCategoryModelHouse,
     onHandleSubmitSearch,
     onClickHouseAchievements,
-    onMorePage,
+    onChangePage,
   } = useOurAchievements();
 
   return (
@@ -163,23 +163,7 @@ const OurAchievements = () => {
                       })
                     )}
                   </div>
-
-                  {housesData.meta.totalPages > toolsResearch.page && (
-                    <div
-                      id="section-onload-more-data"
-                      aria-label="section-onload-more-data"
-                      className="flex justify-center flex-1"
-                    >
-                      <Button
-                        onPress={onMorePage}
-                        variant="bordered"
-                        className="w-full md:w-72 h-12 md:h-[70px] md:text-base"
-                        color="primary"
-                      >
-                        ดูเพิ่มเติม
-                      </Button>
-                    </div>
-                  )}
+                  <Pagination showShadow showControls initialPage={1} total={housesData.meta.totalPages} page={housesData.meta.currentPage} onChange={onChangePage} />
                 </>
               )}
             </div>

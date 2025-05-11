@@ -29,10 +29,7 @@ const HouseID = () => {
         ) : (
           <ContainerContent>
             <div aria-label="cover-image-content" className="flex-1 flex justify-center">
-              <div className='max-w-[684px]'>
-
-            <Img onContextMenu src={houseDataOnce?.cover_image_house} className="w-auto h-full object-contain" />
-              </div>
+              <Img onContextMenu src={houseDataOnce?.cover_image_house} className="md:max-w-[684px] w-full h-full" />
             </div>
             <div aria-label="badge-categories" className="flex flex-col space-y-2 items-start">
               {houseDataOnce?.category_house && <Badge text={houseDataOnce?.category_house.name} classNameText="text-md md:text-xl" />} 
