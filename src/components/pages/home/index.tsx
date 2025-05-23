@@ -2,16 +2,13 @@
 
 import BackgroundLanding from '@/components/modules/landing/backgroundLanding';
 import { Button } from '@heroui/react';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Home = () => {
 
-  useEffect(() => {
-    window.location.href = '/our-achievements'
-  },[])
   return (
     <>
-      <BackgroundLanding text='Hieinspect' />
+      <BackgroundLanding text='Wisdom Construction' />
       <div className="xl:container mx-auto h-screen">
         {/* <Button
           className="mt-4"

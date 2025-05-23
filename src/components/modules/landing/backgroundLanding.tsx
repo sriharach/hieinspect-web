@@ -1,11 +1,16 @@
+// libs
 import React from 'react';
+import clsx from 'clsx';
 import { BackgroundLandingProps } from './backgroundLanding.type';
 import styles from './backgroundLanding.module.scss';
 
-const BackgroundLanding = ({ text, secondText }: BackgroundLandingProps) => {
+const BackgroundLanding = ({ text, secondText, image = 'roof' }: BackgroundLandingProps) => {
   return (
     <div className={styles['landing']}>
-      <div className={styles['landing-background']} onContextMenu={(e) => e.preventDefault()}>
+      <div
+        className={clsx(image === 'roof' ? styles['landing-background'] : styles['landing-wisdom-landing-page'])}
+        onContextMenu={(e) => e.preventDefault()}
+      >
         <div className={styles['landing-filter-color']} />
         <div className={styles['landing-content-container-text']}>
           {text && <h1 className="text-2xl md:text-4xl lg:text-6xl z-20 font-bold">{text}</h1>}

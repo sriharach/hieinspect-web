@@ -17,9 +17,9 @@ const kanitFont = Kanit({
 });
 
 export const metadata: Metadata = {
-  title: 'HIEinspect',
-  description: 'ออนไซต์ รับตรวจบ้าน HIEinspect - Website Inspection Report',
-  applicationName: 'HIEinspect',
+  title: 'Wisdom Construction',
+  description: 'ออนไซต์ รับตรวจบ้าน Wisdom Construction - Website Inspection Report',
+  applicationName: 'Wisdom Construction',
 };
 
 export default function RootLayout({

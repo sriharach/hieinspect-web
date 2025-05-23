@@ -42,7 +42,7 @@ const OurAchievements = () => {
 
   return (
     <section id="our-achievements" aria-label="Our Achievements Section">
-      <BackgroundLanding text="Hieinspect (Wisdom)" secondText="ผลงานของเรา" />
+      <BackgroundLanding text="ผลงานของเรา" />
       <Container loading={isLoading}>
         {isError ? (
           <ErrorMessageComponent />

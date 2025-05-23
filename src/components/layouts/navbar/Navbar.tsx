@@ -41,7 +41,7 @@ const Navbar = () => {
       <ul id="render-nav" className={clsx(styles['nav-ul-content'], styles['nav-ul-scrolled-content'])}>
         {routesNavbar.map((roueNav) => (
           <li key={roueNav.id} className={styles['nav-li-content']}>
-            <Link href={roueNav.herf} passHref>{roueNav.name}</Link>
+            <Link href={roueNav.href} passHref>{roueNav.name}</Link>
           </li>
         ))}
       </ul>
