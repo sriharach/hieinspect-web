@@ -19,12 +19,7 @@ export default {
           lg: '1280px',
         },
       },
-      // screens: {
-      //   xs: '480px',
-      //   sm: '640px',
-      //   md: '768px',
-      //   lg: '1280px',
-      // },
+     
     },
   },
   darkMode: 'class',

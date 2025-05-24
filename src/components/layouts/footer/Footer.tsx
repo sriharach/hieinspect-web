@@ -1,3 +1,5 @@
+'use client'
+
 // libs
 import React from 'react';
 import styles from './footer.module.scss';
@@ -12,6 +14,10 @@ const Footer = () => {
     <footer className={styles['footer']} aria-description="footer">
       <div className={styles['footer-wrapper-box']}>
         <div className={styles['footer-width-grap']}>
+          <div className="flex flex-row grow items-center">
+            <img draggable={false} onContextMenu={(e) => e.preventDefault()} src="/wisdom_logo_.webp" className="w-[100px] md:w-[200px] h-full" alt="" />
+            <span className="text-xl md:text-3xl font-medium shrink">Wisdom construction assistants</span>
+          </div>
           <span className="text-center text-xl md:text-3xl font-medium">ติดต่อเรา</span>
           <div className={styles['footer-grid-col-content']}>
             <div className={styles['footer-grid-col-content-detail']}>
@@ -40,7 +46,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center text-sm md:text-base shrink-0">
-          <p>&copy; {new Date().getFullYear()} HIEinspect - Web Wisdom construction assistant All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Wisdom construction assistant</p>
         </div>
       </div>
     </footer>
