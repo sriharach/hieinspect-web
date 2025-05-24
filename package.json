@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create-icons:hero": "npx @svgr/cli --no-prettier --out-dir src/components/assets/icons/hero --config-file svgr.config.js -- src/assets/svg/hero"
+    "create-icons:hero": "npx @svgr/cli --no-prettier --out-dir src/components/assets/icons/hero --config-file svgr.config.js -- src/assets/svg/hero",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@heroui/react": "^2.7.4",
@@ -29,6 +30,7 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
+    "next-sitemap": "^4.2.3",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "sass": "^1.85.1",

@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   env: {
     API_URL: isProduction ? process.env.API_PRODUCTION_URL : process.env.API_URL || 'http://localhost:8000/api',
     AMOUNT_LIMIT_IMAGE: process.env.AMOUNT_LIMIT_IMAGE,
+    CLIENT_WEB: process.env.CLIENT_WEB
   },
   output: 'export',
   images: {
