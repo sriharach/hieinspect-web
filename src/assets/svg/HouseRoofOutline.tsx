@@ -1,0 +1,24 @@
+import { SVGProps } from "react";
+
+export function HouseRoofOutline(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="1em"
+      height="1em"
+      {...props}
+    >
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      >
+        <path d="m1.5 9.744l10.5-9l10.5 9"></path>
+        <path d="M12 5.244L3.377 12.61c-.224.208-.36.495-.377.8v8.855a.98.98 0 0 0 .978.978H9.75v-7.01a.49.49 0 0 1 .489-.49h3.522a.49.49 0 0 1 .489.49v7.01h5.772a.98.98 0 0 0 .978-.977V13.41a1.2 1.2 0 0 0-.377-.8z"></path>
+      </g>
+    </svg>
+  )
+}

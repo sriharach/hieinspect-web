@@ -2,6 +2,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import { BackgroundLandingProps } from './backgroundLanding.type';
+
+// component
 import styles from './backgroundLanding.module.scss';
 
 const BackgroundLanding = ({ text, secondText, image = 'roof' }: BackgroundLandingProps) => {

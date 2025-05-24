@@ -18,7 +18,7 @@ const kanitFont = Kanit({
 
 export const metadata: Metadata = {
   title: 'Wisdom Construction',
-  description: 'ออนไซต์ รับตรวจบ้าน Wisdom Construction - Website Inspection Report',
+  description: 'บริษัท Wisdom Construction ตรวจบ้านโดยวิศวกรมืออาชีพ',
   applicationName: 'Wisdom Construction',
 };
 

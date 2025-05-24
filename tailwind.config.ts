@@ -9,6 +9,9 @@ export default {
         'main-color': 'var(--mainColor)',
         'color-disable': 'var(--colorDisable)',
       },
+      backgroundImage: {
+        'gradient-main-color-fade': 'linear-gradient(120deg,rgba(0, 133, 255, 1) 0%, rgba(0, 133, 255, 1) 40%, rgba(255, 255, 255, 1) 100%)'
+      },
       container: {
         screens: {
           sm: '640px',
