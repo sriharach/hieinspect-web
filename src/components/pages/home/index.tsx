@@ -1,33 +1,31 @@
 'use client';
 
+// components
+import Container from '@/components/modules/container/container';
 import BackgroundLanding from '@/components/modules/landing/backgroundLanding';
-import { Button } from '@heroui/react';
+import CanvasWave from '@/components/modules/canvasWave';
+import Preface from './Preface';
+import Reviewer from './Reviewer';
+import ReportInspect from './ReportInspect';
+
+// libs
 import React from 'react';
 
 const Home = () => {
   return (
     <>
-      <BackgroundLanding text='Hieinspect' />
-      <div className="xl:container mx-auto h-screen">
-        {/* <Button
-          className="mt-4"
-          color="primary"
-          onPress={() => {
-            fetch('Car Mechanic Simulator 2021.zip').then((res) => {
-              res.blob().then((blob) => {
-                const fileURL = window.URL.createObjectURL(blob);
-                // Setting various property values
-                const alink = document.createElement('a');
-                alink.href = fileURL;
-                alink.download = 'Car Mechanic Simulator 2021';
-                alink.click();
-              });
-            });
-          }}
-        >
-          Download Save Game ของแพรวสุดมั่ว
-        </Button> */}
-      </div>
+      <BackgroundLanding text="Wisdom construction assistants" />
+      {/* Preface wisdom */}
+      <Preface />
+
+      <CanvasWave />
+
+      <Container className="flex flex-col md:py-8 space-y-8">
+        {/* Report Inspect */}
+        <ReportInspect />
+        {/* Reviewer customer  */}
+        <Reviewer />
+      </Container>
     </>
   );
 };

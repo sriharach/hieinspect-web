@@ -3,7 +3,7 @@
 // libs
 import React from 'react';
 import clsx from 'clsx';
-import { Card, Select, SelectItem, Divider, Button } from '@heroui/react';
+import { Card, Select, SelectItem, Divider, Button, Pagination } from '@heroui/react';
 import Link from 'next/link';
 
 // components
@@ -32,10 +32,12 @@ const OurAchievements = () => {
     isLoadingContent,
     isError,
     categoryID,
+    toolsResearch,
     onSetSearch,
     onCategoryModelHouse,
     onHandleSubmitSearch,
     onClickHouseAchievements,
+    onChangePage,
   } = useOurAchievements();
 
   return (
@@ -91,6 +93,7 @@ const OurAchievements = () => {
                 <div id="content-search" className="flex w-full md:w-[360px]">
                   {/* content-search */}
                   <InputHeroUi
+                    maxLength={40}
                     size="sm"
                     startContent={<SearchIcon className="text-black/70 shrink-0 mb-1 h-3 w-3" />}
                     label="ค้นหาชื่อบ้าน"
@@ -131,7 +134,7 @@ const OurAchievements = () => {
                   <div
                     id="section-content-house"
                     aria-label="section-content-house"
-                    className="grid grid-cols-2 lg:grid-cols-3 gap-4"
+                    className="grid grid-cols-2 lg:grid-cols-3 gap-3"
                   >
                     {housesData.data.length === 0 ? (
                       <span>ไม่มีรายการตรวจสอบของโครงการ</span>
@@ -142,15 +145,16 @@ const OurAchievements = () => {
                             key={house.id}
                             className="rounded-bl-none rounded-br-none flex flex-col shadow-md cursor-pointer"
                             href={onClickHouseAchievements(house.id)}
+                            passHref
                           >
                             <Card radius="lg" className="rounded-bl-none rounded-br-none">
                               <Img
                                 alt={`image-preview`}
                                 className={styles['our-achievements-card-img-houses']}
-                                src={'/images/twinhome_preview.webp'}
+                                src={house.cover_image_house}
                               />
-                              <div className="p-4 min-h-min flex flex-col">
-                                <Badge text={house.category_house.name} />
+                              <div className="p-4 min-h-8 h-full flex flex-col">
+                                {house.category_house && <Badge text={house.category_house.name} />}
                                 <span>{house.name}</span>
                               </div>
                             </Card>
@@ -159,22 +163,7 @@ const OurAchievements = () => {
                       })
                     )}
                   </div>
-
-                  {housesData.meta.totalPages > 1 && (
-                    <div
-                      id="section-onload-more-data"
-                      aria-label="section-onload-more-data"
-                      className="flex justify-center flex-1"
-                    >
-                      <Button
-                        variant="bordered"
-                        className="w-full md:w-72 h-12 md:h-[70px] md:text-base"
-                        color="primary"
-                      >
-                        ดูเพิ่มเติม
-                      </Button>
-                    </div>
-                  )}
+                  <Pagination showShadow showControls initialPage={1} total={housesData.meta.totalPages} page={housesData.meta.currentPage} onChange={onChangePage} />
                 </>
               )}
             </div>

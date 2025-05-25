@@ -8,10 +8,11 @@ export interface ResponseHouse {
   created_by: string;
   code_house: string;
   house_images: ReponseHouseImage[];
+  cover_image_house: string;
   category_house: {
     id: string;
     name: string;
-  };
+  } | null;
   realty: {
     id: string;
     name: string;

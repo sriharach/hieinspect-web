@@ -1,4 +1,20 @@
 .footer {
-    @apply bg-gray-900 text-white min-h-[100px] flex-1 items-center flex;
+    @apply bg-gray-900 text-white min-h-[100px] flex-1 items-center flex px-4;
+
+    &-wrapper-box {
+        @apply flex flex-col w-full space-y-8 py-8;
+    }
+
+    &-width-grap {
+        @apply min-w-48 m-auto flex flex-col gap-3;
+    }
+
+    &-grid-col-content {
+        @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+
+        &-detail {
+            @apply flex flex-row flex-grow-0 items-center gap-2;
+        }
+    }
     
 }

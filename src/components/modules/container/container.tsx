@@ -1,11 +1,12 @@
 import React from 'react';
+import clsx from 'clsx'
 
 // components
 import Loading from '../loading/loading';
 import { containerProps } from './container.type';
 import styles from './container.module.scss';
 
-const Container = ({ children, loading, isError }: containerProps) => {
+const Container = ({ children, loading, isError, className }: containerProps) => {
   if (loading) {
     return (
       <div className={styles['container-hie']}>
@@ -28,7 +29,7 @@ const Container = ({ children, loading, isError }: containerProps) => {
 
   return (
     <div className={styles['container-hie']}>
-      <div className="flex-1">{children}</div>
+      <section className={clsx("flex-1", className)}>{children}</section>
     </div>
   );
 };

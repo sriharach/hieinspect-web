@@ -1,5 +1,5 @@
 // libs
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 // hook
 import { useQueryGetCategory } from '@/hooks/useQuery/useQueryGetCategory';
@@ -8,7 +8,7 @@ import { useQueryGetRealtys } from '../useQuery/useQueryGetRealtys';
 
 // type
 import { ReponseCategory } from '@/types/models/category';
-import { TresponsePaginate } from '@/types/common/response..common';
+import { TresponsePaginate } from '@/types/common/response.common';
 import { ResponseHouse } from '@/types/models/house';
 
 const useOurAchievements = () => {
@@ -20,7 +20,6 @@ const useOurAchievements = () => {
     page: number;
     limit: number;
   }>({ search: '', page: 1, limit: 9 });
-
   // hook service
   const {
     data: categoriesDataQuery,
@@ -43,6 +42,7 @@ const useOurAchievements = () => {
     isError: realtysError,
   } = useQueryGetRealtys();
 
+
   const categoriesData = useMemo(() => {
     if (categoriesDataQuery) {
       return categoriesDataQuery.data.map((category) => ({
@@ -51,12 +51,14 @@ const useOurAchievements = () => {
           category.name === 'บ้านเดี่ยว'
             ? '/images/detached_house_preview.webp'
             : category.name === 'ทาวน์โฮม'
-            ? '/images/townhome_preview.webp'
-            : category.name === 'บ้านแฝด'
-            ? '/images/twinhome_preview.webp'
-            : category.name === 'อาคารพาณิชย์'
-            ? '/images/commercial_building_preview.webp'
-            : '',
+              ? '/images/townhome_preview.webp'
+              : category.name === 'บ้านแฝด'
+                ? '/images/twinhome_preview.webp'
+                : category.name === 'อาคารพาณิชย์'
+                  ? '/images/commercial_building_preview.webp'
+                  : category.name === 'คอนโด'
+                    ? '/images/condo_preview.webp'
+                    : undefined,
       }));
     }
     return [];
@@ -86,18 +88,46 @@ const useOurAchievements = () => {
     return window.document.location.pathname + '/house?' + url.toString();
   };
 
+  const handleChangePage = (page: number) => {
+    setToolsResearch((prev) => ({
+      ...prev,
+      page,
+    }));
+  };
+  const housesData = useMemo<TresponsePaginate<ResponseHouse[]>>(() => {
+    if (housesDataQuery) {
+      return {
+        data: housesDataQuery.data.data,
+        meta: housesDataQuery.data.meta,
+      };
+    }
+    return {
+      data: [],
+      meta: {
+        itemsPerPage: 1,
+        totalItems: 5,
+        currentPage: 1,
+        totalPages: 1,
+        sortBy: [[]],
+      }
+    }
+  }, [housesDataQuery])
+  
+
   return {
     categoriesData,
     realtysData,
-    housesData: housesDataQuery ? housesDataQuery.data : ([] as unknown as TresponsePaginate<ResponseHouse[]>),
+    housesData: housesData,
     isError: categoriesError,
     isLoading: categoriesLoading || categoriesFetching || realtysLoading || realtysFetching,
     isLoadingContent: housesLoading || housesLoading,
     categoryID,
+    toolsResearch,
     onSetSearch: setSearch,
     onHandleSubmitSearch: handleSubmitSearch,
     onCategoryModelHouse: handleCategoryModelHouse,
     onClickHouseAchievements: handleClickHouseAchievements,
+    onChangePage: handleChangePage,
   };
 };
 

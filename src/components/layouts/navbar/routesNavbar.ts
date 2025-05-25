@@ -2,16 +2,16 @@ export const routesNavbar = [
   {
     id: 'home',
     name: 'หน้าแรก',
-    herf: '/',
+    href: '/',
   },
   {
     id: 'about',
     name: 'เกี่ยวกับเรา',
-    herf: '',
+    href: '/about',
   },
   {
     id: 'our-achievements',
     name: 'ผลงานของเรา',
-    herf: '/our-achievements',
+    href: '/our-achievements',
   },
 ];

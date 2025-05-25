@@ -17,9 +17,18 @@ const kanitFont = Kanit({
 });
 
 export const metadata: Metadata = {
-  title: 'HIEinspect',
-  description: 'ออนไซต์ รับตรวจบ้าน HIEinspect',
-  applicationName: 'HIEinspect',
+  title: 'Wisdom construction assistants',
+  description: 'บริษัท Wisdom construction assistants ตรวจบ้านโดยวิศวกรมืออาชีพ',
+  applicationName: 'Wisdom Construction assistants',
+  icons: `${process.env.CLIENT_WEB}/wisdom_logo_.webp`,
+  openGraph: {
+    type: 'website',
+    url: process.env.CLIENT_WEB,
+    title: 'Wisdom construction assistants',
+    description: 'บริษัท Wisdom construction assistants ตรวจบ้านโดยวิศวกรมืออาชีพ',
+    // siteName: 'My Website',
+    images: [{ url: `${process.env.CLIENT_WEB}/images/wisdom_landing_page.webp` }],
+  },
 };
 
 export default function RootLayout({
