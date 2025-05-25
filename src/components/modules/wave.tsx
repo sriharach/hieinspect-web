@@ -9,7 +9,7 @@ const Wave = () => {
   const { context } = useCanvasContext();
   const { width } = useResponsiveSize();
   const height = 600;
-  let frequency = 0.0065;
+  let frequency = 0.0025;
   const waves = {
     frontWave: new WaveObj([0.0211, 0.028, 0.015], '#0084ff7a'),
     backWave: new WaveObj([0.0122, 0.018, 0.005], '#78baf863'),
@@ -20,7 +20,7 @@ const Wave = () => {
     Object.entries(waves).forEach(([, wave]) => {
       wave.draw(context!, width, height, frequency);
     });
-    frequency += 0.0065;
+    frequency += 0.0025;
     requestAnimationFrame(render);
   };
   if (context) render();

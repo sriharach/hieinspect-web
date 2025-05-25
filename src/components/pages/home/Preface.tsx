@@ -13,7 +13,7 @@ const Preface = () => {
             <h3 className="font-medium text-lg md:text-3xl">Wisdom construction assistants</h3>
             <hr className="absolute left-0 -bottom-0.5 w-20 md:w-32 h-1 bg-main-color" />
           </div>
-          <div className="flex flex-row flex-wrap gap-6">
+          <div className="flex flex-row flex-wrap shrink gap-6">
             <p aria-label="description wisdom" className="text-sm md:text-xl shrink flex-1">
               บริษัท Wisdom construction assistants ตรวจบ้านโดยวิศวกรมืออาชีพ
               ในการเลือกซื้อบ้านซึ่งถือเป็นการลงทุนที่สำคัญและมีมูลค่าสูง ผู้ซื้อส่วนใหญ่มักคำนึงถึงความสวยงาม
@@ -28,7 +28,7 @@ const Preface = () => {
               draggable={false}
               onContextMenu={(e) => e.preventDefault()}
               src="/images/close-up-couple-taking-notes_.webp"
-              className="w-full h-full lg:w-[400px] lg:h-[300px] rounded-xl"
+              className="w-full h-full md:w-[400px] md:h-[300px] rounded-xl"
               alt=""
             />
           </div>

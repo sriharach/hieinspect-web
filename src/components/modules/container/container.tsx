@@ -29,7 +29,7 @@ const Container = ({ children, loading, isError, className }: containerProps) =>
 
   return (
     <div className={styles['container-hie']}>
-      <div className={clsx("flex-1", className)}>{children}</div>
+      <section className={clsx("flex-1", className)}>{children}</section>
     </div>
   );
 };
