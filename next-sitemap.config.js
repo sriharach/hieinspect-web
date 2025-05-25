@@ -2,14 +2,13 @@
 module.exports = {
   siteUrl: 'https://www.wisdom-construction.com',
   generateRobotsTxt: true,
-  sitemapSize: 7000,
+  sitemapSize: 5000,
   output: 'export',
   robotsTxtOptions: {
     policies: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/about'],
       },
     ],
   },
@@ -17,6 +16,10 @@ module.exports = {
     return [
       {
         loc: 'https://www.wisdom-construction.com/our-achievements',
+        lastmod: new Date().toISOString(),
+      },
+      {
+        loc: 'https://www.wisdom-construction.com/about',
         lastmod: new Date().toISOString(),
       },
     ];
