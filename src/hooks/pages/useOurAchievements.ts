@@ -1,5 +1,5 @@
 // libs
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 // hook
 import { useQueryGetCategory } from '@/hooks/useQuery/useQueryGetCategory';
