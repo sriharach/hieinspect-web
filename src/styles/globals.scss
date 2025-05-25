@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 @layer base {
+
   html,
   body {
     @apply m-0 box-border overflow-x-hidden;
@@ -15,11 +16,29 @@
   }
 }
 
-.yarl__container {
-  background-color: rgba(26, 26, 26, 0.90) !important;
+.marquee-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
 }
 
-/* in global CSS or Tailwind plugin */
-// ::-webkit-scrollbar {
-//   display: none;
-// }
+.marquee {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+ 
+}
+
+.marquee-item {
+  box-sizing: border-box;
+  background-color: #fff;
+  place-items: center;
+}
