@@ -16,10 +16,12 @@ module.exports = {
     return [
       {
         loc: 'https://www.wisdom-construction.com/our-achievements',
+        priority: 1,
         lastmod: new Date().toISOString(),
       },
       {
         loc: 'https://www.wisdom-construction.com/about',
+        priority: 1,
         lastmod: new Date().toISOString(),
       },
     ];

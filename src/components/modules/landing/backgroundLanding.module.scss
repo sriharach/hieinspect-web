@@ -14,6 +14,6 @@
     }
 
     &-wisdom-landing-page {
-        @apply relative bg-[url(/images/wisdom_landing_page.webp)] bg-cover h-[340px] md:h-[480px] xl:h-[500px];
+        @apply relative bg-[url(/images/wisdom_landing_page.webp)] bg-center bg-cover md:bg-cover h-[340px] md:h-[480px] xl:h-[600px] w-full;
     }
 }
