@@ -6,7 +6,7 @@ import FadeUpOnScroll from '@/components/modules/fadeUponScroll';
 
 const Preface = () => {
   return (
-    <Container className="md:pt-8">
+    <Container>
       <FadeUpOnScroll>
         <div aria-label="preface wisdom" className="flex flex-col space-y-4 md:space-y-6">
           <div className="relative inline-block">

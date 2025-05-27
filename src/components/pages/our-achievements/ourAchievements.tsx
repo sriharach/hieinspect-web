@@ -163,7 +163,7 @@ const OurAchievements = () => {
                       })
                     )}
                   </div>
-                  <Pagination showShadow showControls initialPage={1} total={housesData.meta.totalPages} page={housesData.meta.currentPage} onChange={onChangePage} />
+                  <Pagination classNames={{cursor: 'bg-second-color'}} showShadow showControls initialPage={1} total={housesData.meta.totalPages} page={housesData.meta.currentPage} onChange={onChangePage} />
                 </>
               )}
             </div>

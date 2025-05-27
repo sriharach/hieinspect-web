@@ -7,10 +7,11 @@ export default {
     extend: {
       colors: {
         'main-color': 'var(--mainColor)',
+        'second-color': 'var(--secondColor)',
         'color-disable': 'var(--colorDisable)',
       },
       backgroundImage: {
-        'gradient-main-color-fade': 'linear-gradient(120deg,rgba(0, 133, 255, 1) 0%, rgba(0, 133, 255, 1) 40%, rgba(255, 255, 255, 1) 100%)'
+        'gradient-main-color-fade': 'linear-gradient(120deg, rgba(232, 181, 60, 1) 34%, rgba(255, 255, 255, 1) 100%)'
       },
       container: {
         screens: {

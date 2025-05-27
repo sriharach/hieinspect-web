@@ -9,7 +9,7 @@ const Loading = ({ variant = 'simple', ...props }: LoadingProps) => {
         draggable={false}
         variant={variant}
         classNames={{
-          wrapper: 'text-main-color',
+          wrapper: 'text-second-color',
         }}
         {...props}
       />

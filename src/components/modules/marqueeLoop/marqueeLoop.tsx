@@ -5,7 +5,7 @@ import useMarqueeLoop from './useMarqueeLoop';
 const MarqueeLoop = () => {
   useMarqueeLoop();
   return (
-    <section aria-label="marquee" className="marquee-wrapper py-[4rem] md:py-[6rem] md:h-[340px]" id="marquee-container">
+    <section aria-label="marquee" className="marquee-wrapper py-[4rem] md:py-[6rem] md:h-[220px] lg:h-[340px]" id="marquee-container">
       <ul className="marquee gap-2 md:gap-[2rem]" id="marquee">
         <li className="marquee-item">
           <img src="/realtys/ap_logo_.webp" className="w-full h-full bg-cover" alt="" />

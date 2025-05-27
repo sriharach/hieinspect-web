@@ -10,9 +10,10 @@ const Wave = () => {
   const { width } = useResponsiveSize();
   const height = 600;
   let frequency = 0.0025;
+
   const waves = {
-    frontWave: new WaveObj([0.0211, 0.028, 0.015], '#0084ff7a'),
-    backWave: new WaveObj([0.0122, 0.018, 0.005], '#78baf863'),
+    backWave: new WaveObj([0.0122, 0.018, 0.005], '#E8B53C45'),
+    frontWave: new WaveObj([0.0211, 0.028, 0.015], '#E8B53C97'),
   };
 
   const render = () => {
