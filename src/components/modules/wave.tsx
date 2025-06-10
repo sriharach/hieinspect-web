@@ -1,6 +1,6 @@
 // hooks
 import { useCanvasContext } from '@/hooks/useCanvas';
-import useResponsiveSize from '@/hooks/ีuseResponsiveSize';
+import useResponsiveSize from '@/hooks/useResponsiveSize';
 
 // utils
 import WaveObj from '@/utils/wave'
