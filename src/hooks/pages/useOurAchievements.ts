@@ -1,5 +1,5 @@
 // libs
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 // hook
 import { useQueryGetCategory } from '@/hooks/useQuery/useQueryGetCategory';
@@ -10,8 +10,11 @@ import { useQueryGetRealtys } from '../useQuery/useQueryGetRealtys';
 import { ReponseCategory } from '@/types/models/category';
 import { TresponsePaginate } from '@/types/common/response.common';
 import { ResponseHouse } from '@/types/models/house';
+import useResponsiveSize from '../useResponsiveSize';
 
 const useOurAchievements = () => {
+  const {width} = useResponsiveSize();
+
   // hook state
   const [categoryID, setCategoryID] = useState('');
   const [search, setSearch] = useState('');
@@ -20,6 +23,15 @@ const useOurAchievements = () => {
     page: number;
     limit: number;
   }>({ search: '', page: 1, limit: 9 });
+
+  // recap check responsive if the mobile
+  useEffect(() => {
+   setToolsResearch((prev) => ({
+      ...prev,
+      limit: width > 1024 ? 9 : 10,
+    }));
+  }, [width])
+
   // hook service
   const {
     data: categoriesDataQuery,
@@ -41,7 +53,6 @@ const useOurAchievements = () => {
     isFetching: realtysFetching,
     isError: realtysError,
   } = useQueryGetRealtys();
-
 
   const categoriesData = useMemo(() => {
     if (categoriesDataQuery) {
@@ -109,10 +120,9 @@ const useOurAchievements = () => {
         currentPage: 1,
         totalPages: 1,
         sortBy: [[]],
-      }
-    }
-  }, [housesDataQuery])
-  
+      },
+    };
+  }, [housesDataQuery]);
 
   return {
     categoriesData,

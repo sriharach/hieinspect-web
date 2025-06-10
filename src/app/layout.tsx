@@ -17,18 +17,35 @@ const kanitFont = Kanit({
 });
 
 export const metadata: Metadata = {
-  title: 'Wisdom construction assistants',
-  description: 'บริษัท Wisdom construction assistants ตรวจบ้านโดยวิศวกรมืออาชีพ',
-  applicationName: 'Wisdom Construction assistants',
+  metadataBase: new URL(`${process.env.CLIENT_WEB}`),
+  title: 'Wisdom construction assistants ตรวจบ้าน - คอนโดโดยวิศวกรมืออาชีพ',
+
+  /** @comment description	คำอธิบาย SEO */
+  description: 'บริการตรวจบ้านโดยวิศวกรมืออาชีพ เพื่อความมั่นใจในการเลือกซื้อบ้านที่ปลอดภัยและมั่นคง',
+  applicationName: 'Wisdom construction assistants ตรวจบ้าน - คอนโดโดยวิศวกรมืออาชีพ',
   icons: `${process.env.CLIENT_WEB}/wisdom_logo_.webp`,
+
+  /** @comment alternates ป้องกันเนื้อหาซ้ำ */
+  alternates: {
+    canonical: `/`,
+  },
   openGraph: {
     type: 'website',
     url: process.env.CLIENT_WEB,
-    title: 'Wisdom construction assistants',
-    description: 'บริษัท Wisdom construction assistants ตรวจบ้านโดยวิศวกรมืออาชีพ',
-    // siteName: 'My Website',
-    images: [{ url: `${process.env.CLIENT_WEB}/images/wisdom_landing_page.webp` }],
+    title: 'Wisdom construction assistants ตรวจบ้าน - คอนโดโดยวิศวกรมืออาชีพ',
+    description: 'บริการตรวจบ้านโดยวิศวกรมืออาชีพ เพื่อความมั่นใจในการเลือกซื้อบ้านที่ปลอดภัยและมั่นคง',
+    siteName: 'wisdom-construction',
+    images: [{ url: `/images/wisdom_landing_page.webp` }],
   },
+
+   /** @comment robots บอกให้จัดทำดัชนี */
+  robots: {
+    index: true,
+    follow: true,
+  },
+  category: 'building inspection',
+  keywords: ['การตรวจบ้าน', 'ตรวจบ้าน'],
+  creator: 'Sriharach Promruksa',
 };
 
 export default function RootLayout({
@@ -37,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="th">
       <body className={`${kanitFont.className}`}>
         <ToastProviders>
           <ReactQueryProvider>

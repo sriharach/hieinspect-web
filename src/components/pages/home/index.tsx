@@ -25,9 +25,9 @@ const Home = () => {
       <ReportInspect />
 
       <Container className="flex flex-col">
-        <div>
+        <div className='md:py-14'>
           <div className="relative inline-block text-center md:w-full">
-            <h3 className="font-medium text-lg md:text-3xl">โครงการที่ได้รับการตรวจ</h3>
+            <h3 className="font-medium text-lg md:text-3xl">โครงการที่ได้รับการตรวจสอบ</h3>
             <hr className="absolute md:left-[50%] md:-translate-x-[50%] md:-translate-y-[50%] w-20 md:w-32 h-1 bg-main-color" />
           </div>
           <MarqueeLoop />

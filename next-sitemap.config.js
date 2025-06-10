@@ -4,6 +4,7 @@ module.exports = {
   generateRobotsTxt: true,
   sitemapSize: 5000,
   output: 'export',
+  exclude: [],
   robotsTxtOptions: {
     policies: [
       {

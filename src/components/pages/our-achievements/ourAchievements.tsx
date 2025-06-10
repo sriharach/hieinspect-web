@@ -147,13 +147,13 @@ const OurAchievements = () => {
                             href={onClickHouseAchievements(house.id)}
                             passHref
                           >
-                            <Card radius="lg" className="rounded-bl-none rounded-br-none">
+                            <Card radius="lg" className="rounded-bl-none rounded-br-none flex-1">
                               <Img
                                 alt={`image-preview`}
                                 className={styles['our-achievements-card-img-houses']}
                                 src={house.cover_image_house}
                               />
-                              <div className="p-4 min-h-8 h-full flex flex-col">
+                              <div className="p-4 min-h-8 h-full flex flex-col ">
                                 {house.category_house && <Badge text={house.category_house.name} />}
                                 <span>{house.name}</span>
                               </div>
@@ -163,7 +163,15 @@ const OurAchievements = () => {
                       })
                     )}
                   </div>
-                  <Pagination classNames={{cursor: 'bg-second-color'}} showShadow showControls initialPage={1} total={housesData.meta.totalPages} page={housesData.meta.currentPage} onChange={onChangePage} />
+                  <Pagination
+                    classNames={{ cursor: 'bg-second-color' }}
+                    showShadow
+                    showControls
+                    initialPage={1}
+                    total={housesData.meta.totalPages}
+                    page={housesData.meta.currentPage}
+                    onChange={onChangePage}
+                  />
                 </>
               )}
             </div>

@@ -5,7 +5,7 @@ import Wave from './wave';
 
 // hook
 import { CanvasContext } from '@/hooks/useCanvas';
-import useResponsiveSize from '@/hooks/ีuseResponsiveSize';
+import useResponsiveSize from '@/hooks/useResponsiveSize';
 
 const CanvasWave = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);

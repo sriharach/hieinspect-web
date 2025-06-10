@@ -10,7 +10,7 @@ const Preface = () => {
       <FadeUpOnScroll>
         <div aria-label="preface wisdom" className="flex flex-col space-y-4 md:space-y-6">
           <div className="relative inline-block">
-            <h3 className="font-medium text-lg md:text-3xl">Wisdom construction assistants</h3>
+            <h2 className="font-medium text-lg md:text-3xl">Wisdom construction assistants</h2>
             <hr className="absolute left-0 -bottom-0.5 w-20 md:w-32 h-1 bg-main-color" />
           </div>
           <div className="flex flex-row flex-wrap shrink gap-6">
